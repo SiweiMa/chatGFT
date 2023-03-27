@@ -6,7 +6,7 @@ from openai.embeddings_utils import distances_from_embeddings
 import tiktoken
 import gradio as gr
 
-openai.api_key = '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'#os.environ.get('OPENAI_KEY')
+openai.api_key = os.environ.get('OPENAI_KEY')
 
 
 df=pd.read_csv('processed/embeddings.csv', index_col=0)
