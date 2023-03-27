@@ -5,6 +5,5 @@ pandas==1.5.2
 tiktoken==0.1.2
 plotly==5.12.0
 scipy==1.10.0
-textwrap
 tenacity
 sklearn
