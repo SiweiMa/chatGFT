@@ -6,7 +6,7 @@ from openai.embeddings_utils import distances_from_embeddings
 import tiktoken
 import gradio as gr
 
-openai.api_key = os.environ.get('OPENAI_KEY')
+openai.api_key = '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'#os.environ.get('OPENAI_KEY')
 
 
 df=pd.read_csv('processed/embeddings.csv', index_col=0)
@@ -89,7 +89,7 @@ class chatGFT:
         self.chat_history.append({"role": "assistant", "content": f"{reply_content}"}) 
 
 
-    def get_chatbot_output(self, input):
+    def get_chatbot_output(self, input, input_session):
         """
         Get the chatbot's output
 
@@ -99,11 +99,12 @@ class chatGFT:
         Returns:
         tuple: a tuple the chat history and generated context
         """
-        self.get_output(input)
-        print(self.chat_history)
+        input_session = input
+        self.get_output(input_session)
+        # print(self.chat_history)
         chat_history_content = [i['content'] for i in self.chat_history if i['role'] != 'system']
         chat_history_content_output = [(chat_history_content[i], chat_history_content[i+1]) for i in range(0, len(chat_history_content)-1, 2)]
-        return chat_history_content_output, self.get_souce() # convert to tuples of list
+        return input_session, chat_history_content_output, self.get_souce() # convert to tuples of list
 
     def get_souce(self):
         source = []
@@ -160,13 +161,14 @@ with gr.Blocks(title="chatGFT") as demo:
     chatGFTbot = chatGFT(df, 1000)
 
     with gr.Column(): 
+        text_session  = gr.State('')
         chatbot = gr.Chatbot() 
         txt = gr.Textbox(show_label=False, placeholder="Enter text and press enter").style(container=False)
         clear = gr.Button("Clear")
         source = gr.Textbox(label='Sources', placeholder="Sources")
 
 
-    txt.submit(chatGFTbot.get_chatbot_output, txt, [chatbot, source]) # submit(function, input, output)
+    txt.submit(chatGFTbot.get_chatbot_output, [txt,text_session], [text_session, chatbot, source]) # submit(function, input, output)
     txt.submit(None, None, txt, _js="() => {''}") # No function, no input to that function, submit action to textbox is a js function that returns empty string, so it clears immediately.
     clear.click(chatGFTbot.reboot_bot, None, None)
     clear.click(lambda: None, None, chatbot, queue=False)
