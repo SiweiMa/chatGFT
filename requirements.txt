@@ -5,5 +5,5 @@ pandas==1.5.2
 tiktoken==0.1.2
 plotly==5.12.0
 scipy==1.10.0
-tenacity
-sklearn
+scikit-learn==1.2.0
+tenacity==8.1.0
