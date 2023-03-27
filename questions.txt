@@ -1,0 +1,40 @@
+what is RDF? 
+what is the difference between RDF and CDF?
+Please list all CDFs
+list of activity and transaction types
+why are all DOB fields empty in the Customer Master RDF?
+What is the User Data fields in the CMF?
+what is negative_balance_date in CMF? what is negative_balance_date in customer master RDF file?
+Once an account does not have a negative balance anymore after having had one in the past, the negative_balance_date is cleared, correct?
+what is the cutoff time for any financial activity to show in the daily RDF?
+is there a field in the Authorized Transaction RDF that should indicate whether the auth is a general auth or a pre-auth?
+what is pre-auth?
+how can i get pre-auth info by Program API?
+where can I find saving interest info at account level?
+can we get the info in gAnalytics?
+will debit include in the Early ACH CDF?
+will outgoing ACH include in the early ACH CDF?
+what is ICA field used for? (kind of right answer)
+which gAnalytics report include info regarding IVR?
+how to identify reversal in RDF? (wrong)
+how to identify reversal at Galileo? (wrong)
+what is merchant credit?
+how to identify merchant credit in RDF? (wrong)
+is there a report in gAnalytics that shows CP and CNP for the past transactions? (kind of)
+can balance shared by multiple accounts?
+does CMF include secondary account?
+does customer master RDF include secondary account?
+how can I call the Add Account endpoint to create a secondary account in python?
+show me how incremental authorizaitons displayed in RDFs? (no answer)
+show me how incremental authorizaitons displayed in Auth API? (wrong answer)
+is adjustment included in Posted Transactions RDF?
+what does AUTHORIZATION RESPONSE = 00 mean in the RDF
+what is STIP?
+how to get STIP info in RDFs?
+how is foreign authorization handled in RDF?
+how galileo make money?
+where can I check if a card is virtual or physical card at Galileo?
+
+
+
+
